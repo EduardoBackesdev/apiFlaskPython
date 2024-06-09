@@ -3,7 +3,7 @@ import conn
 connection = conn.connection
 
 
-def HelloWorld():
+def register():
     dog_name = request.form.get('dog_name')
     tutor = request.form.get('tutor')
     address = request.form.get('address')
