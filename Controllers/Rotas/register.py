@@ -1,5 +1,5 @@
 from flask import Flask, request
-import conn
+import Models.conn as conn
 connection = conn.connection
 
 
