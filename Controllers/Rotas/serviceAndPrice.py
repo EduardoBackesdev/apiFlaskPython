@@ -12,6 +12,6 @@ def serviceAndPrice():
         connection.commit()
         cur.close()
         connection.close()
-        return
+        return data
     except:
         return {"msg": "Erro, tente mais tarde!"}

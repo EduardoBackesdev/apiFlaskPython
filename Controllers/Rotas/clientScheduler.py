@@ -6,13 +6,11 @@ connection = conn.connection
 def clientScheduler(tutor):
     connection.cursor()
     try:
-        # connection.execute(
-        #     '''select a.tutor, b.dog_name, a.service,
-        #     a."hour", a."day" from scheduler a
-        #     inner join register b on (a.tutor = b.tutor)
-        #     where a.tutor =  ''', (tutor))
+        connection.execute(
+            '''select * from register where tutor = %s ''', (tutor))
+        data = connection.fetchall()
         connection.commit()
         connection.close()
-        return {"msg": "Sucesso ao buscar agendamento"}
+        return data
     except:
         return {"msg": "Erro ao buscar agendamento"}
