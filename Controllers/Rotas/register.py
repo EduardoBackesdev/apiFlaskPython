@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import request
 import Models.conn as conn
 connection = conn.connection
 
@@ -8,13 +8,12 @@ def register():
     tutor = request.form.get('tutor')
     address = request.form.get('address')
     number = request.form.get('number')
-    cur = connection.cursor()
+    connection.cursor()
     try:
-        cur.execute(
+        connection.execute(
             '''INSERT INTO REGISTER (dog_name, tutor, address, number) 
             VALUES (%s, %s, %s, %s)''', (dog_name, tutor, address, number))
         connection.commit()
-        cur.close()
         connection.close()
         return 'Cliente cadastrado com sucesso!'
     except:
