@@ -11,5 +11,5 @@ def register_routes(app):
                      serviceAndPrice.serviceAndPrice, methods=['GET'])
     app.add_url_rule('/api/scheduler', 'scheduler',
                      scheduler.scheduler, methods=['POST'])
-    app.add_url_rule('/api/clientscheduler', 'clientscheduler',
+    app.add_url_rule('/api/clientscheduler/<tutor>', 'clientscheduler',
                      clientScheduler.clientScheduler, methods=['GET'])
