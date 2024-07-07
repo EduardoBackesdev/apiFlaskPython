@@ -10,11 +10,14 @@ def register():
     number = request.form.get('number')
     connection.cursor()
     try:
-        connection.execute(
-            '''INSERT INTO REGISTER (dog_name, tutor, address, number) 
+        connection.cursor().execute(
+            '''INSERT INTO CLIENTS (dog_name, tutor, address, number) 
             VALUES (%s, %s, %s, %s)''', (dog_name, tutor, address, number))
         connection.commit()
+        connection.cursor().close()
         connection.close()
         return 'Cliente cadastrado com sucesso!'
-    except:
+    except Exception as a:
+        e = str(a)
+        print(e)
         return 'falha ao cadastrar, tente novamente!'

@@ -4,14 +4,20 @@ connection = conn.connection
 
 
 def serviceAndPrice():
-    cur = connection.cursor()
     try:
-        cur.execute('''select a.service, b.price from service a
-                    inner join price b on (a.price = b.id_price)  ''')
-        data = cur.fetchall()
+        connection.cursor().execute('''select a.service, b.price from service''')
+        data = connection.cursor().fetchall()
+        a = print (data)
         connection.commit()
-        cur.close()
+        connection.cursor().close()
         connection.close()
-        return data
+        dados = []
+        for row in data:
+            dados.append(dict(row))   
+        print(dados)
+        return dados
     except:
         return {"msg": "Erro, tente mais tarde!"}
+
+
+serviceAndPrice()

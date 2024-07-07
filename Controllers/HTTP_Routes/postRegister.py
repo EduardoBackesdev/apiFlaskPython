@@ -1,4 +1,5 @@
 from Models.DatabaseFunctions import register
 
 def postRegister():
-    register.register()
+    query = register.register()
+    return query

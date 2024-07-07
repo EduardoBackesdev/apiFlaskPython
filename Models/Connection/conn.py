@@ -1,8 +1,8 @@
 import psycopg2
 connection = psycopg2.connect(
-    database='python_Project',
+    database='project_pets',
     user='postgres',
-    password='root',
+    password='admin',
     host='localhost',
     port='5432'
 )

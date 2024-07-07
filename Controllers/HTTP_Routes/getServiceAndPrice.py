@@ -1,3 +1,4 @@
 from Models.DatabaseFunctions import serviceAndPrice
 def getServiceAndPrice():
-    serviceAndPrice.serviceAndPrice
+    query = serviceAndPrice.serviceAndPrice
+    return  query
