@@ -1,23 +1,17 @@
-from flask import Flask
+from flask import Flask, json
 import Models.Connection.conn as conn
 connection = conn.connection
 
 
 def serviceAndPrice():
+    connection.cursor()
     try:
-        connection.cursor().execute('''select a.service, b.price from service''')
-        data = connection.cursor().fetchall()
-        a = print (data)
-        connection.commit()
+        connection.cursor().execute('''select service, price from service''')
+        data = connection.cursor().fetchall() 
+        res = [{"service": row[0], "price": row[1]} for row in data]     
         connection.cursor().close()
-        connection.close()
-        dados = []
-        for row in data:
-            dados.append(dict(row))   
-        print(dados)
-        return dados
-    except:
-        return {"msg": "Erro, tente mais tarde!"}
-
-
-serviceAndPrice()
+        connection.close() 
+        return json(res)
+    except Exception as a:
+        e = str(a)
+        return e
