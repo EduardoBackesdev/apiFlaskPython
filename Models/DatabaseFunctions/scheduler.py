@@ -1,9 +1,6 @@
 from flask import Flask, request
 import Models.Connection.conn as conn
 connection = conn.connection
-# inserir os dados com o valor do ID referente a foreign key, depois fazer o select com inner join
-# mandar os valores corretos pelo frontend!
-
 
 def scheduler():
     tutor = request.form.get('tutor')
