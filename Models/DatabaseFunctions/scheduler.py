@@ -19,7 +19,7 @@ def scheduler():
     else:
         try:
             connection.execute('''INSERT INTO SCHEDULER(tutor, service, hour, day) values 
-                    (%s,%s,%s,%s)''', (tutor, service, hour, day))
+                    (%s,%s,%s,%s)''', (tutor, service, hour, day,))
             connection.commit()
             connection.close()
             return {"msg": "Horario marcado com sucesso!"}

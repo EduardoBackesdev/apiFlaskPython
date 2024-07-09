@@ -12,7 +12,7 @@ def register():
     try:
         connection.cursor().execute(
             '''INSERT INTO CLIENTS (dog_name, tutor, address, number) 
-            VALUES (%s, %s, %s, %s)''', (dog_name, tutor, address, number))
+            VALUES (%s, %s, %s, %s)''', (dog_name, tutor, address, number,))
         connection.commit()
         connection.cursor().close()
         connection.close()
