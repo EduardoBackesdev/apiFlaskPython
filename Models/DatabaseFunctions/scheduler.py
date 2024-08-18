@@ -15,7 +15,7 @@ def scheduler():
         return {"msg": "Serviço fechado, abriremos amanhã as 08:00"}
     else:
         try:
-            connection.execute('''INSERT INTO SCHEDULER(tutor, service, hour, day) values 
+            connection.execute('''INSERT INTO SCHEDULER(tutor, service, hour, day, qtd_client) values 
                     (%s,%s,%s,%s)''', (tutor, service, hour, day,))
             connection.commit()
             connection.close()
